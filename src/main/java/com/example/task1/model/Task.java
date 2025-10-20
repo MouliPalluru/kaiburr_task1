@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +19,5 @@ public class Task {
     private String name;
     private String owner;
     private String command;
-    private List<TaskExecution> taskExecutions;
+    private List<TaskExecution> taskExecutions = new ArrayList<>();
 }

@@ -91,7 +91,10 @@ public class TaskService {
             log.error("Error executing command for task {}: {}", taskId, e.getMessage());
         }
 
-        // Add execution to task
+        // Add execution to task (guard against null list)
+        if (task.getTaskExecutions() == null) {
+            task.setTaskExecutions(new java.util.ArrayList<>());
+        }
         task.getTaskExecutions().add(execution);
         taskRepository.save(task);
 
